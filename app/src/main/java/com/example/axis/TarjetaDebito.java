@@ -6,23 +6,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class pagoUsuario extends AppCompatActivity {
+public class TarjetaDebito extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pago_usuario);
+        setContentView(R.layout.activity_tarjeta_debito);
     }
 
-    //Metodo flechita atrás
+
+    //Metodo para regresar
     public void regresar(View view){
         Intent siguiente = new Intent(this,DashboardDeUsuario.class);
         startActivity(siguiente);
     }
 
-    //Metodo Tarjeta de debito
-    public void tarjetaDebito(View view){
-        Intent siguiente = new Intent(this,TarjetaDebito.class);
-        startActivity(siguiente);
-    }
+    //
 }

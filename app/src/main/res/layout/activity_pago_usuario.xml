@@ -32,6 +32,7 @@
         android:layout_marginEnd="127dp"
         android:layout_marginRight="127dp"
         android:layout_marginBottom="25dp"
+        android:onClick="tarjetaDebito"
         android:text="Tarjeta de Débito"
         app:layout_constraintBottom_toTopOf="@+id/button3"
         app:layout_constraintEnd_toEndOf="parent"

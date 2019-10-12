@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".pagoUsuario"></activity>
+        <activity android:name=".TarjetaDebito"></activity>
+        <activity android:name=".pagoUsuario" />
         <activity
             android:name=".DashboardDeUsuario"
             android:label="@string/title_activity_dashboard_de_usuario"
