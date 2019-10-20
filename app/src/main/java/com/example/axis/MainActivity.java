@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.login_usuario);
         et1 = (EditText)findViewById(R.id.et1);
         et2 = (EditText)findViewById(R.id.et2);
     }
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
             Intent siguiente = new Intent(this,DashboardDeUsuario.class);
             startActivity(siguiente);
             }else {
-                Toast.makeText(this, "Nombre de usuario o contrase;a incorrectos", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Nombre de usuario o contrasena incorrectos", Toast.LENGTH_LONG).show();
             }
         }
 }
