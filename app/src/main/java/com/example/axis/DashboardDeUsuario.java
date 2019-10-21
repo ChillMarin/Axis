@@ -88,10 +88,16 @@ public class DashboardDeUsuario extends AppCompatActivity
             case android.R.id.home:
                 Toast.makeText(this,"Hacia atras",Toast.LENGTH_LONG).show();
                 break;
-            case R.id.salir:
-                finish();
+            case R.id.configuracion:
+
                 break;
-            case R.id.Pagos:
+            case R.id.testComunicacion:
+
+                break;
+            case R.id.Logon:
+
+                break;
+            case R.id.Salir:
                 finish();
                 break;
         }
@@ -104,17 +110,15 @@ public class DashboardDeUsuario extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_home) {
+        if (id == R.id.avancedepago) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.ReversarPago) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.CierredeLotes) {
 
-        } else if (id == R.id.nav_tools) {
+        } else if (id == R.id.CopiaDeRecibo) {
 
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.Reportes) {
 
         }
 
@@ -124,8 +128,8 @@ public class DashboardDeUsuario extends AppCompatActivity
     }
 
     //Metodo para la siguiente ventana de pago
-    public void pasarPago(View view){
-        Intent siguiente = new Intent(this,pagoUsuario.class);
+    public void tarjetaDebito(View view){
+        Intent siguiente = new Intent(this,TarjetaDebito.class);
         startActivity(siguiente);
     }
 }

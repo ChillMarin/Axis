@@ -5,34 +5,26 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="@string/menu_home" />
+            android:id="@+id/avancedepago"
+            android:icon="@drawable/ic_payment_black_24dp"
+            android:title="@string/avance_de_pago" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+            android:id="@+id/ReversarPago"
+            android:icon="@drawable/ic_payment_black_24dp"
+            android:title="@string/reversar_pago" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:id="@+id/CierredeLotes"
+            android:icon="@drawable/ic_payment_black_24dp"
+            android:title="@string/cierre_de_lotes" />
         <item
-            android:id="@+id/nav_tools"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="@string/menu_tools" />
+            android:id="@+id/CopiaDeRecibo"
+            android:icon="@drawable/ic_payment_black_24dp"
+            android:title="@string/copia_de_recibo" />
+        <item
+            android:id="@+id/Reportes"
+            android:icon="@drawable/ic_payment_black_24dp"
+            android:title="@string/reportes" />
     </group>
 
-    <item android:title="Communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="@string/menu_share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="@string/menu_send" />
-        </menu>
-    </item>
 
 </menu>

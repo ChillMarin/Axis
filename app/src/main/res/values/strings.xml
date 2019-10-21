@@ -3,15 +3,27 @@
     <string name="title_activity_dashboard_de_usuario">DashboardDeUsuario</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
+    <string name="nav_header_title">Axis POS</string>
+    <string name="nav_header_subtitle">Globalaxis@gmail.com</string>
+    <string name="nav_header_desc">Menu</string>
     <string name="action_settings">Settings</string>
+    <string name="configuracion">Configuracion</string>
+    <string name="prueba_de_comunicacion">Prueba de Comunicacion</string>
+    <string name="logon">Logon</string>
+    <string name="salir">Salir</string>
+    <string name="avance_de_pago">Avance de Pago</string>
+    <string name="reversar_pago">Reversar Pago</string>
+    <string name="cierre_de_lotes">Cierre de Lotes</string>
+    <string name="copia_de_recibo">Copia de Recibo</string>
+    <string name="reportes">Reportes</string>
+    <string name="nTarjeta">Número de la tarjeta</string>
+    <string name="vencimiento">Vencimiento</string>
+    <string name="datos_de_tarjeta">Datos de tarjeta</string>
+    <string name="ccv">CCV</string>
+    <string name="btnaceptar">Aceptar</string>
+    <string name="btnregresar">Regresar</string>
+    <string name="procesar_transacciones">Procesar Transacciones</string>
+    <string name="btnotros">Otros</string>
+    <string name="tajeta_de_credito">Tajeta de credito</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
-    <string name="menu_tools">Tools</string>
-    <string name="menu_share">Share</string>
-    <string name="menu_send">Send</string>
 </resources>
