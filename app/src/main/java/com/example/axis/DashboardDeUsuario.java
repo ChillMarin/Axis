@@ -98,7 +98,8 @@ public class DashboardDeUsuario extends AppCompatActivity
 
                 break;
             case R.id.Salir:
-                finish();
+                Intent siguiente = new Intent(this,MainActivity.class);
+                startActivity(siguiente);
                 break;
         }
         return super.onOptionsItemSelected(item);
