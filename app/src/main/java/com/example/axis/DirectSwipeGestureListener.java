@@ -56,6 +56,4 @@ public class DirectSwipeGestureListener extends GestureDetector.SimpleOnGestureL
         }*/
         return true;
     }
-
-
 }

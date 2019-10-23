@@ -11,6 +11,7 @@
     <string name="prueba_de_comunicacion">Prueba de Comunicacion</string>
     <string name="logon">Logon</string>
     <string name="salir">Salir</string>
+    <string name="mensajeSwipe">Bienvenido deslize hacia arriba</string>
     <string name="avance_de_pago">Avance de Pago</string>
     <string name="reversar_pago">Reversar Pago</string>
     <string name="cierre_de_lotes">Cierre de Lotes</string>
