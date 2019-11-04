@@ -1,19 +1,19 @@
 package com.example.axis;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 
-public class TarjetaDebito extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
+public class TajetaDebito_cedula extends AppCompatActivity {
     private Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tarjeta_debito);
+        setContentView(R.layout.activity_cedula);
         setUpToolbar();
     }
 
@@ -44,11 +44,5 @@ public class TarjetaDebito extends AppCompatActivity {
         Intent siguiente = new Intent(this,DashboardDeUsuario.class);
         startActivity(siguiente);
     }
-
-    public void siguiente(View view){
-        Intent siguiente = new Intent(this,TajetaDebito_cedula.class);
-        startActivity(siguiente);
-    }
-
-    //
 }
+
