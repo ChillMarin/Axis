@@ -12,6 +12,13 @@
         <activity android:name=".InicioSesion"></activity>
         <activity android:name=".TarjetaDebito" />
         <activity android:name=".pagoUsuario" />
+        <activity android:name=".TajetaDebito_cedula" />
+        <activity android:name=".TarjetaDebitoPin" />
+        <activity android:name=".TarjetaDebitoMonto" />
+        <activity android:name=".TarjetaCredito" />
+        <activity android:name=".TarjetaCreditoCedula" />
+        <activity android:name=".TarjetaCreditoMonto" />
+        <activity android:name=".TarjetaCreditoPin" />
         <activity
             android:name=".DashboardDeUsuario"
             android:label="@string/title_activity_dashboard_de_usuario"

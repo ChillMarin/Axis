@@ -8,13 +8,12 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-public class TajetaDebito_cedula extends AppCompatActivity {
+public class TarjetaDebitoMonto extends AppCompatActivity {
     private Toolbar toolbar;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cedula);
+        setContentView(R.layout.activity_monto);
         setUpToolbar();
     }
 
@@ -23,7 +22,6 @@ public class TajetaDebito_cedula extends AppCompatActivity {
         setSupportActionBar(toolbar);
         showHomeUpIcon();
     }
-
     private void showHomeUpIcon() {
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -32,24 +30,21 @@ public class TajetaDebito_cedula extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
+        switch (item.getItemId()){
             case android.R.id.home:
-                Intent siguiente = new Intent(this, DashboardDeUsuario.class);
+                Intent siguiente = new Intent(this,DashboardDeUsuario.class);
                 startActivity(siguiente);
                 break;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    //Metodo para regresar
-    public void regresar(View view) {
-        Intent siguiente = new Intent(this, DashboardDeUsuario.class);
-        startActivity(siguiente);
-    }
-
     //Metodo para continuar
-    public void siguiente(View view) {
-        Intent siguiente = new Intent(this, TarjetaDebitoMonto.class);
+    public void regresar(View view){
+        Intent siguiente = new Intent(this,TarjetaDebitoPin.class);
         startActivity(siguiente);
     }
 }
+
+
+

@@ -130,9 +130,15 @@ public class DashboardDeUsuario extends AppCompatActivity
         return true;
     }
 
-    //Metodo para la siguiente ventana de pago
+    //Metodo para la siguiente ventana de pago debito
     public void tarjetaDebito(View view){
         Intent siguiente = new Intent(this,TarjetaDebito.class);
+        startActivity(siguiente);
+    }
+
+    //Metodo para la siguiente ventana de pago credito
+    public void tarjetaCredito(View view){
+        Intent siguiente = new Intent(this,TarjetaCredito.class);
         startActivity(siguiente);
     }
 }
