@@ -4,34 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TarjetaDebito">
+    tools:context=".TarjetaDebitoMonto">
 
     <include
         layout="@layout/toolbar"
         android:id="@+id/toolbarmenu"
         />
 
-    <EditText
-        android:id="@+id/editText3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
-        android:ems="10"
-        android:hint="Bs"
-        android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarmenu"
-        app:layout_constraintVertical_bias="0.324" />
-
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tituloActivity"
         android:layout_width="172dp"
         android:layout_height="35dp"
         android:layout_marginStart="8dp"
@@ -50,7 +31,7 @@
         app:layout_constraintVertical_bias="0.202" />
 
     <Button
-        android:id="@+id/botonAceptarClave"
+        android:id="@+id/aceptarMonto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -59,11 +40,29 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:onClick="regresar"
-        android:text="@string/btnaceptar"
+        android:text="Button"
+        android:onClick="continuar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText3" />
+        app:layout_constraintTop_toBottomOf="@+id/Monto" />
+
+    <EditText
+        android:id="@+id/Monto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Monto"
+        app:layout_constraintBottom_toTopOf="@+id/aceptarMonto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tituloActivity" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

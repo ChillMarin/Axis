@@ -15,17 +15,27 @@ import androidx.fragment.app.DialogFragment;
 public class TarjetaDebitoPin extends AppCompatActivity{
     private Toolbar toolbar;
     private Button btnalert;
+    private String resultado;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pin);
         setUpToolbar();
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            String tarjeta = extras.getString("ntarjeta");
+            String ccv = extras.getString("ccv");
+            String fecha = extras.getString("fecha");
+            String cedula =extras.getString("cedula");
+            String monto = extras.getString("monto");
+            resultado = "Numero de cedula:" + cedula + " fecha: " + fecha + " monto: " + monto;
+        }
         btnalert = (Button) findViewById(R.id.botonAceptarClave);
         btnalert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder alerta = new AlertDialog.Builder(TarjetaDebitoPin.this);
-                alerta.setMessage("Aprobado").setCancelable(false).setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                alerta.setMessage("Aprobado" + resultado).setCancelable(false).setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         finish();

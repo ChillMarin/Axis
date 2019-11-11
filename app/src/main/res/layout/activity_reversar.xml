@@ -32,7 +32,7 @@
         />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/numerodeTarjeta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -52,7 +52,7 @@
         app:layout_constraintVertical_bias="0.205" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/fechaVencimiento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -72,7 +72,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tituloActivity"
         android:layout_width="189dp"
         android:layout_height="46dp"
         android:layout_marginStart="8dp"
@@ -90,7 +90,7 @@
         app:layout_constraintVertical_bias="0.173" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/ccv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -124,7 +124,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button7"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintTop_toBottomOf="@+id/fechaVencimiento" />
 
     <Button
         android:id="@+id/button7"
@@ -142,5 +142,5 @@
         app:layout_constraintEnd_toStartOf="@+id/botonAceptarClave"
         app:layout_constraintHorizontal_bias="0.57"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintTop_toBottomOf="@+id/fechaVencimiento" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,17 +4,21 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 public class TarjetaDebitoMonto extends AppCompatActivity {
     private Toolbar toolbar;
+    EditText monto;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_monto);
         setUpToolbar();
+        monto= (EditText) findViewById(R.id.Monto);
+
     }
 
     private void setUpToolbar() {
@@ -40,9 +44,18 @@ public class TarjetaDebitoMonto extends AppCompatActivity {
     }
 
     //Metodo para continuar
-    public void regresar(View view){
+    public void continuar(View view){
         Intent siguiente = new Intent(this,TarjetaDebitoPin.class);
-        startActivity(siguiente);
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+             siguiente.putExtra("ntarjeta",extras.getString("ntarjeta"));
+             siguiente.putExtra("ccv",extras.getString("ccv"));
+             siguiente.putExtra("fecha",extras.getString("fecha"));
+             siguiente.putExtra("cedula",extras.getString("cedula"));
+             siguiente.putExtra("monto",monto.getText().toString());
+            startActivity(siguiente);
+        }
+
     }
 }
 
