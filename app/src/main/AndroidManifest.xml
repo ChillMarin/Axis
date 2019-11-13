@@ -9,17 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppThemeNoActionBar">
-        <activity android:name=".InicioSesion"></activity>
-        <activity android:name=".TarjetaDebito" />
-        <activity android:name=".pagoUsuario" />
-        <activity android:name=".TajetaDebito_cedula"></activity>
-        <activity android:name=".TarjetaDebitoPin"></activity>
-        <activity android:name=".TarjetaDebitoMonto"></activity>
+        <activity android:name=".Seguridad"></activity>
+        <activity android:name=".Tarjeta" />
+        <activity android:name=".TarjetaCedula"></activity>
+        <activity android:name=".TarjetaPin"></activity>
+        <activity android:name=".TarjetaMonto"></activity>
+        <activity android:name=".Configuracion"></activity>
+        <activity android:name=".CopiaRecibo"></activity>
+        <activity android:name=".Reversar"></activity>
         <activity
             android:name=".DashboardDeUsuario"
             android:label="@string/title_activity_dashboard_de_usuario"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

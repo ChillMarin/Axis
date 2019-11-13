@@ -5,18 +5,21 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
+import android.widget.EditText;
 
-public class pagoUsuario extends AppCompatActivity {
+public class Tarjeta extends AppCompatActivity {
     private Toolbar toolbar;
+    private EditText nTarjerta,ccv,fVencimiento;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pago_usuario);
+        setContentView(R.layout.activity_tarjeta);
+        nTarjerta = (EditText) findViewById(R.id.numerodeTarjeta);
+        ccv = (EditText) findViewById(R.id.ccv);
+        fVencimiento = (EditText) findViewById(R.id.fechaVencimiento);
         setUpToolbar();
     }
 
@@ -42,9 +45,25 @@ public class pagoUsuario extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    //Metodo Tarjeta de debito
-    public void tarjetaDebito(View view){
-        Intent siguiente = new Intent(this,TarjetaDebito.class);
+
+    //Metodo para regresar
+    public void regresar(View view){
+        Intent siguiente = new Intent(this,DashboardDeUsuario.class);
         startActivity(siguiente);
     }
+
+    //Metodo para ir a la pantalla de cedula
+    public void siguiente(View view){
+
+        Intent siguiente = new Intent(this, TarjetaCedula.class);
+        String nTarjeta1 = nTarjerta.getText().toString();
+        String ccv1 = ccv.getText().toString();
+        String fecha = fVencimiento.getText().toString();
+        siguiente.putExtra("ntarjeta",nTarjeta1);
+        siguiente.putExtra("ccv",ccv1);
+        siguiente.putExtra("fecha",fecha);
+        startActivity(siguiente);
+    }
+
+    //
 }

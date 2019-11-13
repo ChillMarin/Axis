@@ -4,17 +4,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-public class TarjetaCreditoPin extends AppCompatActivity {
-
+public class Configuracion extends AppCompatActivity {
     private Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tarjeta_credito_pin);
+        setContentView(R.layout.activity_configuracion);
         setUpToolbar();
     }
 
@@ -40,14 +41,7 @@ public class TarjetaCreditoPin extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    //Metodo para regresar
-    public void regresar(View view){
-        Intent siguiente = new Intent(this,DashboardDeUsuario.class);
-        startActivity(siguiente);
-    }
 
-    public void siguiente(View view){
-        Intent siguiente = new Intent(this,TarjetaCredito.class);
-        startActivity(siguiente);
-    }
+
+    //
 }

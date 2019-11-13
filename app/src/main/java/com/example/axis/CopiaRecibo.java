@@ -1,26 +1,25 @@
 package com.example.axis;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
+import android.widget.Button;
 
-public class TarjetaDebito extends AppCompatActivity {
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
+public class CopiaRecibo extends AppCompatActivity{
     private Toolbar toolbar;
-    private EditText nTarjerta,ccv,fVencimiento;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tarjeta_debito);
-        nTarjerta = (EditText) findViewById(R.id.numerodeTarjeta);
-        ccv = (EditText) findViewById(R.id.ccv);
-        fVencimiento = (EditText) findViewById(R.id.fechaVencimiento);
+        setContentView(R.layout.activity_copia_de_recibo);
         setUpToolbar();
+        Bundle extras = getIntent().getExtras();
+
     }
 
     private void setUpToolbar() {
@@ -46,24 +45,11 @@ public class TarjetaDebito extends AppCompatActivity {
     }
 
 
-    //Metodo para regresar
+    //Metodo para continuar
     public void regresar(View view){
         Intent siguiente = new Intent(this,DashboardDeUsuario.class);
         startActivity(siguiente);
     }
-
-    //Metodo para ir a la pantalla de cedula
-    public void siguiente(View view){
-
-        Intent siguiente = new Intent(this,TajetaDebito_cedula.class);
-        String nTarjeta1 = nTarjerta.getText().toString();
-        String ccv1 = ccv.getText().toString();
-        String fecha = fVencimiento.getText().toString();
-        siguiente.putExtra("ntarjeta",nTarjeta1);
-        siguiente.putExtra("ccv",ccv1);
-        siguiente.putExtra("fecha",fecha);
-        startActivity(siguiente);
-    }
-
-    //
 }
+
+

@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     app:titleTextColor="@color/colorAccent"
     android:minHeight="?attr/actionBarSize"
-    tools:context=".MainActivity"
+    tools:context=".Login"
     android:theme="@style/AppThemeCustomToolBar"
     android:background="@color/colorPrimary"
     app:popupTheme="@style/AppThemeCustomMenuToolBar"

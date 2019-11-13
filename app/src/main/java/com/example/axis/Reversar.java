@@ -8,13 +8,15 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-public class TarjetaCredito extends AppCompatActivity {
+public class Reversar extends AppCompatActivity{
     private Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tarjeta_credito);
+        setContentView(R.layout.activity_reversar);
         setUpToolbar();
+        Bundle extras = getIntent().getExtras();
+
     }
 
     private void setUpToolbar() {
@@ -39,17 +41,12 @@ public class TarjetaCredito extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    //Metodo para regresar
+
+    //Metodo para continuar
     public void regresar(View view){
         Intent siguiente = new Intent(this,DashboardDeUsuario.class);
         startActivity(siguiente);
     }
-
-    public void siguiente(View view){
-        Intent siguiente = new Intent(this,TajetaDebito_cedula.class);
-        startActivity(siguiente);
-    }
-
 }
 
 

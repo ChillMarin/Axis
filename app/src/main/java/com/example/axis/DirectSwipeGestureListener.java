@@ -17,13 +17,13 @@ public class DirectSwipeGestureListener extends GestureDetector.SimpleOnGestureL
     private  static int MAX_SWIPE_DISTANCE_Y = 1000;
 
     //activity the displays the message
-    private InicioSesion activity = null;
+    private Seguridad activity = null;
 
-    public InicioSesion getActivity (){
+    public Seguridad getActivity (){
         return activity;
     }
 
-    public void setActivity(InicioSesion activity){
+    public void setActivity(Seguridad activity){
         this.activity = activity;
     }
 

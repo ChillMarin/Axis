@@ -10,9 +10,8 @@ import android.widget.Button;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.DialogFragment;
 
-public class TarjetaDebitoPin extends AppCompatActivity{
+public class TarjetaPin extends AppCompatActivity{
     private Toolbar toolbar;
     private Button btnalert;
     private String resultado;
@@ -34,7 +33,7 @@ public class TarjetaDebitoPin extends AppCompatActivity{
         btnalert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder alerta = new AlertDialog.Builder(TarjetaDebitoPin.this);
+                AlertDialog.Builder alerta = new AlertDialog.Builder(TarjetaPin.this);
                 alerta.setMessage("Aprobado" + resultado).setCancelable(false).setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

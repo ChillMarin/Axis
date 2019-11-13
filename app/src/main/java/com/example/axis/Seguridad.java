@@ -16,7 +16,7 @@ import android.view.MotionEvent;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.TextView;
 
-public class InicioSesion extends AppCompatActivity {
+public class Seguridad extends AppCompatActivity {
 
     public static final long DURATION_TRANSITION = 1000;
 

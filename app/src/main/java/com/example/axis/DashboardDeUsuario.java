@@ -5,9 +5,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
+import android.text.Layout;
 import android.transition.Slide;
 import android.transition.Transition;
 import android.view.Gravity;
@@ -16,7 +14,6 @@ import android.view.View;
 
 import androidx.annotation.RequiresApi;
 import androidx.core.app.ActivityOptionsCompat;
-import androidx.core.view.GestureDetectorCompat;
 import androidx.core.view.GravityCompat;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 
@@ -31,7 +28,6 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
 import android.view.animation.DecelerateInterpolator;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class DashboardDeUsuario extends AppCompatActivity
@@ -43,7 +39,6 @@ public class DashboardDeUsuario extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.navigation_dashboard_de_usuario);
         setUpToolbar();
-
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -89,6 +84,8 @@ public class DashboardDeUsuario extends AppCompatActivity
                 Toast.makeText(this,"Hacia atras",Toast.LENGTH_LONG).show();
                 break;
             case R.id.configuracion:
+                Intent configuracion = new Intent(this,Configuracion.class);
+                startActivity(configuracion);
 
                 break;
             case R.id.testComunicacion:
@@ -98,15 +95,16 @@ public class DashboardDeUsuario extends AppCompatActivity
 
                 break;
             case R.id.Salir:
-                Intent siguiente = new Intent(this,MainActivity.class);
+                Intent salir = new Intent(this, Login.class);
                 finish();
-                startActivity(siguiente);
+                startActivity(salir);
 
                 break;
         }
         return super.onOptionsItemSelected(item);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -116,10 +114,18 @@ public class DashboardDeUsuario extends AppCompatActivity
         if (id == R.id.avancedepago) {
             // Handle the camera action
         } else if (id == R.id.ReversarPago) {
+            onSlideClicked();
+            Intent reversar = new Intent(this, Reversar.class);
+            startActivity(reversar, ActivityOptionsCompat.makeSceneTransitionAnimation(this).toBundle());
 
         } else if (id == R.id.CierredeLotes) {
 
+
         } else if (id == R.id.CopiaDeRecibo) {
+            onSlideClicked();
+            Intent intent = new Intent(this, CopiaRecibo.class);
+            startActivity(intent, ActivityOptionsCompat.makeSceneTransitionAnimation(this).toBundle());
+
 
         } else if (id == R.id.Reportes) {
 
@@ -132,13 +138,25 @@ public class DashboardDeUsuario extends AppCompatActivity
 
     //Metodo para la siguiente ventana de pago debito
     public void tarjetaDebito(View view){
-        Intent siguiente = new Intent(this,TarjetaDebito.class);
+        Intent siguiente = new Intent(this, Tarjeta.class);
         startActivity(siguiente);
     }
 
-    //Metodo para la siguiente ventana de pago credito
-    public void tarjetaCredito(View view){
-        Intent siguiente = new Intent(this,TarjetaCredito.class);
-        startActivity(siguiente);
+    private Transition transition;
+
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    public void onSlideClicked(){
+        transition = new Slide(Gravity.BOTTOM );
+        iniciarLotes();
+    }
+
+    @SuppressWarnings("unchecked")
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    public void iniciarLotes(){
+        transition.setDuration(1000);
+        transition.setInterpolator(new DecelerateInterpolator());
+        getWindow().setExitTransition(transition);
     }
 }

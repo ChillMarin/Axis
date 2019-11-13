@@ -5,12 +5,11 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-public class TajetaDebito_cedula extends AppCompatActivity {
+public class TarjetaCedula extends AppCompatActivity {
     private Toolbar toolbar;
     EditText cedula;
     String numeroTajeta;
@@ -61,7 +60,7 @@ public class TajetaDebito_cedula extends AppCompatActivity {
 
     //Metodo para seguir el workflow
     public void siguiente(View view) {
-        Intent siguiente = new Intent(this, TarjetaDebitoMonto.class);
+        Intent siguiente = new Intent(this, TarjetaMonto.class);
         siguiente.putExtra("ntarjeta",numeroTajeta);
         siguiente.putExtra("ccv",ccv);
         siguiente.putExtra("fecha",fecha);
