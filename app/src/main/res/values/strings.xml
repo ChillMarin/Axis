@@ -3,7 +3,7 @@
     <string name="title_activity_dashboard_de_usuario">DashboardDeUsuario</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Axis POS</string>
+    <string name="nav_header_title">Administrador</string>
     <string name="nav_header_subtitle">Globalaxis@gmail.com</string>
     <string name="nav_header_desc">Menu</string>
     <string name="action_settings">Settings</string>
@@ -24,7 +24,7 @@
     <string name="ccv">CCV</string>
     <string name="btnaceptar">Aceptar</string>
     <string name="btnregresar">Regresar</string>
-    <string name="procesar_transacciones">Procesar Transacciones</string>
+    <string name="procesar_transacciones">PROCESAR TRANSACCIONES</string>
     <string name="btnotros">Otros</string>
     <string name="tajeta_de_credito">Tajeta de credito</string>
 

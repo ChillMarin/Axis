@@ -53,7 +53,9 @@ public class DashboardDeUsuario extends AppCompatActivity
     private void setUpToolbar() {
         toolbar = findViewById(R.id.toolbarmenu);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         showHomeUpIcon();
+
     }
     private void showHomeUpIcon() {
         if (getSupportActionBar() != null) {
@@ -111,9 +113,9 @@ public class DashboardDeUsuario extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.avancedepago) {
+        //if (id == R.id.avancedepago) {
             // Handle the camera action
-        } else if (id == R.id.ReversarPago) {
+        if (id == R.id.ReversarPago) {
             onSlideClicked();
             Intent reversar = new Intent(this, Reversar.class);
             startActivity(reversar, ActivityOptionsCompat.makeSceneTransitionAnimation(this).toBundle());
