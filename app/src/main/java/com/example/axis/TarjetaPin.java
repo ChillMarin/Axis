@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,10 +16,12 @@ import androidx.appcompat.widget.Toolbar;
 public class TarjetaPin extends AppCompatActivity{
     private Toolbar toolbar;
     private Button btnalert;
+    EditText clave;
     private String resultado;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        clave = (EditText)findViewById(R.id.editTextpin);
         setContentView(R.layout.activity_pin);
         setUpToolbar();
         Bundle extras = getIntent().getExtras();
@@ -27,22 +31,28 @@ public class TarjetaPin extends AppCompatActivity{
             String fecha = extras.getString("fecha");
             String cedula =extras.getString("cedula");
             String monto = extras.getString("monto");
-            resultado = "Numero de cedula:" + cedula + " fecha: " + fecha + " monto: " + monto;
+            resultado = " Numero de cedula: " + cedula + " fecha: " + fecha + " monto: " + monto;
         }
         btnalert = (Button) findViewById(R.id.btnCierre);
         btnalert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder alerta = new AlertDialog.Builder(TarjetaPin.this);
-                alerta.setMessage("Aprobado" + resultado).setCancelable(false).setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                alerta.setMessage("  Aprobado" + resultado).setCancelable(false).setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        finish();
+                        Intent siguiente = new Intent(TarjetaPin.this, DashboardDeUsuario.class);
+                        startActivity(siguiente);
                     }
                 });
-                AlertDialog titulo = alerta.create();
-                titulo.setTitle("Estatus");
-                titulo.show();
+                clave = (EditText)findViewById(R.id.editTextpin);
+                if (clave.getText().toString().isEmpty()) {
+                    Toast.makeText(TarjetaPin.this, "Digite su clave", Toast.LENGTH_SHORT).show();
+                }else {
+                    AlertDialog titulo = alerta.create();
+                    titulo.setTitle("Estatus");
+                    titulo.show();
+                }
             }
         });
     }

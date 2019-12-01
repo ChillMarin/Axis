@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -60,11 +61,15 @@ public class TarjetaCedula extends AppCompatActivity {
 
     //Metodo para seguir el workflow
     public void siguiente(View view) {
-        Intent siguiente = new Intent(this, TarjetaMonto.class);
-        siguiente.putExtra("ntarjeta",numeroTajeta);
-        siguiente.putExtra("ccv",ccv);
-        siguiente.putExtra("fecha",fecha);
-        siguiente.putExtra("cedula",cedula.getText().toString());
-        startActivity(siguiente);
+        if (cedula.getText().toString().isEmpty()) {
+            Toast.makeText(this, "El número de cedula no puede estar vacio", Toast.LENGTH_SHORT).show();
+        }else {
+            Intent siguiente = new Intent(this, TarjetaMonto.class);
+            siguiente.putExtra("ntarjeta", numeroTajeta);
+            siguiente.putExtra("ccv", ccv);
+            siguiente.putExtra("fecha", fecha);
+            siguiente.putExtra("cedula", cedula.getText().toString());
+            startActivity(siguiente);
+        }
     }
 }

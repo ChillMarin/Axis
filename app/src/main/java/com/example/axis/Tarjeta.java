@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class Tarjeta extends AppCompatActivity {
     private Toolbar toolbar;
@@ -54,15 +55,22 @@ public class Tarjeta extends AppCompatActivity {
 
     //Metodo para ir a la pantalla de cedula
     public void siguiente(View view){
-
-        Intent siguiente = new Intent(this, TarjetaCedula.class);
-        String nTarjeta1 = nTarjerta.getText().toString();
-        String ccv1 = ccv.getText().toString();
-        String fecha = fVencimiento.getText().toString();
-        siguiente.putExtra("ntarjeta",nTarjeta1);
-        siguiente.putExtra("ccv",ccv1);
-        siguiente.putExtra("fecha",fecha);
-        startActivity(siguiente);
+        if (nTarjerta.getText().toString().isEmpty()){
+            Toast.makeText(this, "El número de tarjeta no puede estar vacio", Toast.LENGTH_SHORT).show();
+        }else if (ccv.getText().toString().isEmpty()){
+            Toast.makeText(this, "El número ccv no puede estar vacio", Toast.LENGTH_SHORT).show();
+        }else if (fVencimiento.getText().toString().isEmpty()){
+            Toast.makeText(this, "La fecha no puede estar vacia", Toast.LENGTH_SHORT).show();
+        }else {
+            Intent siguiente = new Intent(this, TarjetaCedula.class);
+            String nTarjeta1 = nTarjerta.getText().toString();
+            String ccv1 = ccv.getText().toString();
+            String fecha = fVencimiento.getText().toString();
+            siguiente.putExtra("ntarjeta", nTarjeta1);
+            siguiente.putExtra("ccv", ccv1);
+            siguiente.putExtra("fecha", fecha);
+            startActivity(siguiente);
+        }
     }
 
     //

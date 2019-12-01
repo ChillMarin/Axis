@@ -65,12 +65,12 @@ public class CierreDeLotes extends AppCompatActivity implements View.OnClickList
                 Thread hilo = new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        while (i<=100){
+                        while (i<=100) {
 
                             h.post(new Runnable() {
                                 @Override
                                 public void run() {
-                                    t.setText(i+" %");
+                                    t.setText(i + " %");
                                     p.setProgress(i);
                                 }
                             });
@@ -79,18 +79,7 @@ public class CierreDeLotes extends AppCompatActivity implements View.OnClickList
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
-                            if (i==100){
-                                AlertDialog.Builder alerta = new AlertDialog.Builder(CierreDeLotes.this);
-                                alerta.setMessage("Aprobado").setCancelable(false).setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        finish();
-                                    }
-                                });
-                                AlertDialog titulo = alerta.create();
-                                titulo.setTitle("Estatus");
-                                titulo.show();
-                            }
+
                             i++;
                             isActivo = true;
                         }
