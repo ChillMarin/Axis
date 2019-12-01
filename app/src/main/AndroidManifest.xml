@@ -9,14 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppThemeNoActionBar">
-        <activity android:name=".Seguridad"></activity>
+        <activity android:name=".Seguridad" />
         <activity android:name=".Tarjeta" />
-        <activity android:name=".TarjetaCedula"></activity>
-        <activity android:name=".TarjetaPin"></activity>
-        <activity android:name=".TarjetaMonto"></activity>
-        <activity android:name=".Configuracion"></activity>
-        <activity android:name=".CopiaRecibo"></activity>
-        <activity android:name=".Reversar"></activity>
+        <activity android:name=".TarjetaCedula" />
+        <activity android:name=".TarjetaPin" />
+        <activity android:name=".TarjetaMonto" />
+        <activity android:name=".Configuracion" />
+        <activity android:name=".CopiaRecibo" />
+        <activity android:name=".Reversar" />
+        <activity android:name=".CierreDeLotes" />
         <activity
             android:name=".DashboardDeUsuario"
             android:label="@string/title_activity_dashboard_de_usuario"

@@ -29,7 +29,7 @@ public class TarjetaPin extends AppCompatActivity{
             String monto = extras.getString("monto");
             resultado = "Numero de cedula:" + cedula + " fecha: " + fecha + " monto: " + monto;
         }
-        btnalert = (Button) findViewById(R.id.botonAceptarClave);
+        btnalert = (Button) findViewById(R.id.btnCierre);
         btnalert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

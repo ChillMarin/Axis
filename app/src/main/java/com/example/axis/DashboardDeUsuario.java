@@ -121,7 +121,9 @@ public class DashboardDeUsuario extends AppCompatActivity
             startActivity(reversar, ActivityOptionsCompat.makeSceneTransitionAnimation(this).toBundle());
 
         } else if (id == R.id.CierredeLotes) {
-
+            onSlideClicked();
+            Intent reversar = new Intent(this, CierreDeLotes.class);
+            startActivity(reversar, ActivityOptionsCompat.makeSceneTransitionAnimation(this).toBundle());
 
         } else if (id == R.id.CopiaDeRecibo) {
             onSlideClicked();
