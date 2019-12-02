@@ -79,6 +79,10 @@ public class CierreDeLotes extends AppCompatActivity implements View.OnClickList
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
+                            if (i==100){
+                                x = new Intent(CierreDeLotes.this,TarjetaPin.class);
+                                startActivity(x);
+                            }
 
                             i++;
                             isActivo = true;
