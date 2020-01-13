@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "968646488442",
+    "firebase_url": "https://axisfirebase.firebaseio.com",
+    "project_id": "axisfirebase",
+    "storage_bucket": "axisfirebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:968646488442:android:3e8509c861064f2469e6c3",
+        "android_client_info": {
+          "package_name": "com.example.axis"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "968646488442-rnou1hhksju82gbvghtm1cvm93rtq8dc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.axis",
+            "certificate_hash": "203818fdc8d3ac387d43bbed6e4f30b3b5ce57c5"
+          }
+        },
+        {
+          "client_id": "968646488442-9s73v31jcoorjucjgko0gi0umaucvkpk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAs-Avnb-jb50HM4A8KNfAJovfyQ0e_AvM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "968646488442-9s73v31jcoorjucjgko0gi0umaucvkpk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

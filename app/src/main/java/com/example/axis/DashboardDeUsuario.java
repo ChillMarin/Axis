@@ -115,19 +115,14 @@ public class DashboardDeUsuario extends AppCompatActivity
 
         //if (id == R.id.avancedepago) {
             // Handle the camera action
-        if (id == R.id.ReversarPago) {
-            onSlideClicked();
-            Intent reversar = new Intent(this, Reversar.class);
-            startActivity(reversar, ActivityOptionsCompat.makeSceneTransitionAnimation(this).toBundle());
-
-        } else if (id == R.id.CierredeLotes) {
+     if (id == R.id.CierredeLotes) {
             onSlideClicked();
             Intent reversar = new Intent(this, CierreDeLotes.class);
             startActivity(reversar, ActivityOptionsCompat.makeSceneTransitionAnimation(this).toBundle());
 
         } else if (id == R.id.CopiaDeRecibo) {
             onSlideClicked();
-            Intent intent = new Intent(this, CopiaRecibo.class);
+            Intent intent = new Intent(this, Recibos.class);
             startActivity(intent, ActivityOptionsCompat.makeSceneTransitionAnimation(this).toBundle());
 
 

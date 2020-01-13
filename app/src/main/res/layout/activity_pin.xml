@@ -4,26 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Tarjeta">
+    tools:context=".TarjetaPin">
 
     <include
         android:id="@+id/toolbarmenu"
         layout="@layout/toolbar" />
 
     <TextView
-        android:id="@+id/tituloActivity"
+        android:id="@+id/tituloActivityTransacciones"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         android:text="Pin de seguridad"
         android:textColor="@color/colorAccent"
         android:textSize="24sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/editTextpin"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbarmenu" />
 
@@ -31,19 +28,13 @@
         android:id="@+id/btnCierre"
         android:layout_width="212dp"
         android:layout_height="54dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="32dp"
         android:background="@drawable/buttonrounded"
         android:text="@string/btnaceptar"
         android:textAlignment="center"
         android:textColor="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextpin" />
 
@@ -51,18 +42,14 @@
         android:id="@+id/editTextpin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginBottom="32dp"
         android:ems="10"
         android:hint="Clave"
         android:inputType="number"
+        android:maxLength="6"
         app:layout_constraintBottom_toTopOf="@+id/btnCierre"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tituloActivity" />
+        app:layout_constraintTop_toBottomOf="@+id/tituloActivityTransacciones" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

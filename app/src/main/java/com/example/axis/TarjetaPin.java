@@ -3,6 +3,7 @@ package com.example.axis;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -13,48 +14,115 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.example.axis.Models.Persona;
+import com.example.axis.Models.Tarjeta;
+import com.example.axis.Models.Transaccion;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 public class TarjetaPin extends AppCompatActivity{
     private Toolbar toolbar;
     private Button btnalert;
-    EditText clave;
+    EditText Eclave;
     private String resultado;
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
+    Tarjeta tarjeta1 = new Tarjeta();
+    Persona cliente = new Persona();
+    Transaccion transaccion = new Transaccion();
+    String Mensaje;
+    int estatus;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        clave = (EditText)findViewById(R.id.editTextpin);
+        Eclave = (EditText)findViewById(R.id.editTextpin);
         setContentView(R.layout.activity_pin);
         setUpToolbar();
         Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            String tarjeta = extras.getString("ntarjeta");
-            String ccv = extras.getString("ccv");
-            String fecha = extras.getString("fecha");
-            String cedula =extras.getString("cedula");
-            String monto = extras.getString("monto");
-            resultado = " Numero de cedula: " + cedula + " fecha: " + fecha + " monto: " + monto;
+        estatus= 2;
+        transaccion.setIdEstatus(estatus);
+        if (estatus == 1){
+            Mensaje = "Aprobado";
+        }else{
+            Mensaje = "Negado";
         }
+
+        if (extras != null) {
+            try {
+                String tarjeta = extras.getString("ntarjeta");
+                String ccv = extras.getString("ccv");
+                String fecha = extras.getString("fecha");
+                String cedula =extras.getString("cedula");
+                String monto = extras.getString("monto");
+                String Tipodecuenta = extras.getString("Tipodecuenta");
+                String Tpersona = extras.getString("Tipodepersona");
+                tarjeta1.setNumerodecuenta(tarjeta);
+                tarjeta1.setCcv((ccv));
+                tarjeta1.setFecha(fecha);
+                tarjeta1.setTipodecuenta(Tipodecuenta);
+                cliente.setPersonaCedula((cedula));
+                cliente.setPersonaTipo(Tpersona);
+                transaccion.setMonto(monto);
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+                Date date = new Date();
+                transaccion.setFecha(dateFormat.format(date));
+            }catch (Exception e){
+                Log.d("ErrorInsertando",e.toString());
+            }
+
+        }
+        inicializarfirebase();
         btnalert = (Button) findViewById(R.id.btnCierre);
         btnalert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder alerta = new AlertDialog.Builder(TarjetaPin.this);
-                alerta.setMessage("  Aprobado" + resultado).setCancelable(false).setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                alerta.setMessage(Mensaje).setCancelable(false).setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Intent siguiente = new Intent(TarjetaPin.this, DashboardDeUsuario.class);
-                        startActivity(siguiente);
+                        Intent intent = new Intent(TarjetaPin.this, ReversoRecibos.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putSerializable("Tra",transaccion);
+                        intent.putExtras(bundle);
+                        startActivity(intent);
                     }
                 });
-                clave = (EditText)findViewById(R.id.editTextpin);
-                if (clave.getText().toString().isEmpty()) {
+                Eclave = (EditText)findViewById(R.id.editTextpin);
+                if (Eclave.getText().toString().isEmpty()) {
                     Toast.makeText(TarjetaPin.this, "Digite su clave", Toast.LENGTH_SHORT).show();
                 }else {
+
+                    CrearTransaccion();
                     AlertDialog titulo = alerta.create();
                     titulo.setTitle("Estatus");
                     titulo.show();
                 }
             }
         });
+    }
+    private void CrearTransaccion(){
+        String id = databaseReference.push().getKey();
+        tarjeta1.setIdCliente(id);
+        cliente.setIdPersona(id);
+        transaccion.setIdCliente(id);
+        databaseReference.child("Cliente").child(id).setValue(cliente);
+        id = databaseReference.push().getKey();
+        tarjeta1.setIdTarjeta(id);
+        transaccion.setIdTarjeta(id);
+        databaseReference.child("Tarjeta").child(id).setValue(tarjeta1);
+        id = databaseReference.push().getKey();
+        transaccion.setIdTransaccion(id);
+        databaseReference.child("Transaccion").child(id).setValue(transaccion);
+    }
+    private void inicializarfirebase() {
+        FirebaseApp.initializeApp(this);
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference();
     }
 
     private void setUpToolbar() {

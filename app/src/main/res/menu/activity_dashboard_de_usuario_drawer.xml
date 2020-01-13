@@ -8,23 +8,23 @@
             <!--android:id="@+id/avancedepago"-->
             <!--android:icon="@drawable/ic_payment_black_24dp"-->
             <!--android:title="@string/avance_de_pago" />-->
-        <item
-            android:id="@+id/ReversarPago"
-            android:icon="@drawable/ic_reversar"
-            android:title="@string/reversar_pago" />
-        <item
-            android:id="@+id/CierredeLotes"
-            android:icon="@drawable/ic_cierredelotes"
-            android:title="@string/cierre_de_lotes" />
-        <item
-            android:id="@+id/CopiaDeRecibo"
-            android:icon="@drawable/ic_recibo"
-            android:title="@string/copia_de_recibo" />
-        <item
-            android:id="@+id/Reportes"
-            android:icon="@drawable/ic_factura"
-            android:title="@string/reportes" />
-    </group>
+        <!-- <item
+             android:id="@+id/ReversarPago"
+             android:icon="@drawable/ic_reversar"
+             android:title="@string/reversar_pago" />-->
+         <item
+             android:id="@+id/CierredeLotes"
+             android:icon="@drawable/ic_cierredelotes"
+             android:title="@string/cierre_de_lotes" />
+         <item
+             android:id="@+id/CopiaDeRecibo"
+             android:icon="@drawable/ic_recibo"
+             android:title="Transacciones" />
+         <item
+             android:id="@+id/Reportes"
+             android:icon="@drawable/ic_factura"
+             android:title="@string/reportes" />
+     </group>
 
 
-</menu>
+ </menu>

@@ -16,6 +16,8 @@ public class TarjetaCedula extends AppCompatActivity {
     String numeroTajeta;
     String ccv;
     String fecha;
+    String Tipodecuenta;
+    String Tpersona;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +29,8 @@ public class TarjetaCedula extends AppCompatActivity {
              numeroTajeta = extras.getString("ntarjeta");
              ccv = extras.getString("ccv");
              fecha = extras.getString("fecha");
+            Tipodecuenta = extras.getString("Tipodecuenta");
+            Tpersona = extras.getString("Tipodepersona");
         }
     }
 
@@ -69,6 +73,8 @@ public class TarjetaCedula extends AppCompatActivity {
             siguiente.putExtra("ccv", ccv);
             siguiente.putExtra("fecha", fecha);
             siguiente.putExtra("cedula", cedula.getText().toString());
+            siguiente.putExtra("Tipodecuenta",Tipodecuenta);
+            siguiente.putExtra("Tipodepersona",Tpersona);
             startActivity(siguiente);
         }
     }

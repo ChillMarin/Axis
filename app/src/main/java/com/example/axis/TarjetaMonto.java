@@ -47,7 +47,7 @@ public class TarjetaMonto extends AppCompatActivity {
     //Metodo para continuar
     public void continuar(View view){
         if (monto.getText().toString().isEmpty()) {
-            Toast.makeText(this, "El número de cedula no puede estar vacio", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "El monto no puede estar vacio", Toast.LENGTH_SHORT).show();
         }else {
             Intent siguiente = new Intent(this, TarjetaPin.class);
             Bundle extras = getIntent().getExtras();
@@ -56,6 +56,8 @@ public class TarjetaMonto extends AppCompatActivity {
                 siguiente.putExtra("ccv", extras.getString("ccv"));
                 siguiente.putExtra("fecha", extras.getString("fecha"));
                 siguiente.putExtra("cedula", extras.getString("cedula"));
+                siguiente.putExtra("Tipodecuenta",extras.getString("Tipodecuenta"));
+                siguiente.putExtra("Tipodepersona",extras.getString("Tipodepersona"));
                 siguiente.putExtra("monto", monto.getText().toString());
                 startActivity(siguiente);
             }
