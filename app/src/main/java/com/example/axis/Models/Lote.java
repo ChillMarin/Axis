@@ -3,26 +3,26 @@ package com.example.axis.Models;
 import java.util.List;
 
 public class Lote {
-    private int idLote;
-    private int loteEstatus;
+    private String idLote;
+    private String loteEstatus;
     private List<Transaccion> transaccions;
     private String lote_fecha;
     public Lote() {
     }
 
-    public int getIdLote() {
+    public String getIdLote() {
         return idLote;
     }
 
-    public void setIdLote(int idLote) {
+    public void setIdLote(String idLote) {
         this.idLote = idLote;
     }
 
-    public int getLoteEstatus() {
+    public String getLoteEstatus() {
         return loteEstatus;
     }
 
-    public void setLoteEstatus(int loteEstatus) {
+    public void setLoteEstatus(String loteEstatus) {
         this.loteEstatus = loteEstatus;
     }
 

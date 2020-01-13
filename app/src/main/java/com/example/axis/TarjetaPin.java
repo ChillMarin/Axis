@@ -114,6 +114,7 @@ public class TarjetaPin extends AppCompatActivity{
         databaseReference.child("Tarjeta").child(id).setValue(tarjeta1);
         id = databaseReference.push().getKey();
         transaccion.setIdTransaccion(id);
+        transaccion.setProcesada("0");
         databaseReference.child("Transaccion").child(id).setValue(transaccion);
     }
     private void inicializarfirebase() {

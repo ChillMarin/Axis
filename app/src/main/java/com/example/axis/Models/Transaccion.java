@@ -9,6 +9,15 @@ public class Transaccion implements Serializable {
     private String idTarjeta;
     private String fecha;
     private String monto;
+    private String procesada;
+
+    public String getProcesada() {
+        return procesada;
+    }
+
+    public void setProcesada(String procesada) {
+        this.procesada = procesada;
+    }
 
     public Transaccion() {
     }

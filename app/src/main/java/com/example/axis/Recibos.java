@@ -82,7 +82,7 @@ public class Recibos extends AppCompatActivity{
         return super.onOptionsItemSelected(item);
     }
 private void getTransacciones(){
-        TDatabase.child("Transaccion").addValueEventListener(new ValueEventListener() {
+        TDatabase.child("Transaccion").orderByChild("procesada").equalTo("0").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()){
@@ -117,6 +117,7 @@ private void getTransacciones(){
                             t.setIdTransaccion(ds.child("idTransaccion").getValue().toString());
                             t.setIdTarjeta(ds.child("idTarjeta").getValue().toString());
                             t.setIdCliente(ds.child("idCliente").getValue().toString());
+                            t.setProcesada(ds.child("procesada").getValue().toString());
                             transaccions.add(t);
                         }
                     }catch (Exception e){
