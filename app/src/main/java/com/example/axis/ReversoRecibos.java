@@ -42,30 +42,29 @@ public class ReversoRecibos extends AppCompatActivity{
         if (extras!=null){
             transaccion= (Transaccion) extras.getSerializable("Tra");
             Ref.setText(transaccion.getIdTransaccion());
-            Ced.setText(transaccion.getIdCliente());
-            Mon.setText(transaccion.getMonto());
-            Fec.setText(transaccion.getFecha());
-            String estatus = "";
-            if (String.valueOf(String.valueOf( transaccion.getIdEstatus())).equals(1)){
-                estatus = "Aprobado";
-            }else if (String.valueOf(String.valueOf( transaccion.getIdEstatus())).equals(2)){
-                estatus ="Negado";
-            }else if (String.valueOf(String.valueOf( transaccion.getIdEstatus())).equals(3)){
-                estatus = "Reversado";
-            }
-            else if (String.valueOf(String.valueOf( transaccion.getIdEstatus())).equals(12)){
-                estatus="Procesado en lote";
-            }
-            Est.setText(estatus);
+            Ced.setText("Cédula: "+transaccion.getIdCliente());
+            Mon.setText("Monto: "+transaccion.getMonto());
+            Fec.setText("Fecha: "+transaccion.getFecha());
+            Est.setText("Estatus: "+ transaccion.getIdEstatus());
         }
         Reversar = (Button) findViewById(R.id.btnReversar);
         inicializarfirebase();
         Reversar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                transaccion.setIdEstatus(3);
-                databaseReference.child("Transaccion").child(transaccion.getIdTransaccion()).setValue(transaccion);
-                Est.setText("Negado");
+                AlertDialog.Builder alerta = new AlertDialog.Builder(ReversoRecibos.this);
+                alerta.setMessage("¿Seguro de que desea reversar la operacion?").setCancelable(false).setPositiveButton("Reversar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        transaccion.setIdEstatus("Reversado");
+                        databaseReference.child("Transaccion").child(transaccion.getIdTransaccion()).setValue(transaccion);
+                        Est.setText("Reversado");
+                    }
+                });
+                AlertDialog titulo = alerta.create();
+                titulo.setTitle("Estatus de transacción");
+                titulo.show();
+
             }
         });
     }

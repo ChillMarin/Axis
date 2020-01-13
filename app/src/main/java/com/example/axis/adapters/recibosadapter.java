@@ -41,18 +41,7 @@ public class recibosadapter extends RecyclerView.Adapter<recibosadapter.ViewHold
 
             holder.cedula.setText("Cédula: "+ transaccions.get(position).getIdCliente());
              holder.monto.setText("Monto: "+String.valueOf(transaccions.get(position).getMonto()));
-             String estatus = "";
-             if (String.valueOf(transaccions.get(position).getIdEstatus()).equals("1")){
-                 estatus = "Aprobado";
-             }else if (String.valueOf(transaccions.get(position).getIdEstatus()).equals("2")){
-                 estatus ="Negado";
-            }else if (String.valueOf(transaccions.get(position).getIdEstatus()).equals("3")){
-                estatus = "Reversado";
-            }
-            else if (String.valueOf(transaccions.get(position).getIdEstatus()).equals("12")){
-                estatus="Procesado en lote";
-            }
-            holder.estatus.setText("Estatus: "+estatus);
+            holder.estatus.setText("Estatus: "+transaccions.get(position).getIdEstatus());
             holder.fecha.setText("Fecha: "+String.valueOf(transaccions.get(position).getFecha()));
             holder.tarjeta.setText("Número de Tarjeta: "+String.valueOf(transaccions.get(position).getIdTarjeta()));
             holder.ref.setText(String.valueOf(transaccions.get(position).getIdTransaccion()));

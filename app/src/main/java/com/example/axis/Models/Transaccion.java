@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Transaccion implements Serializable {
     private String idTransaccion;
-    private int idEstatus;
+    private String idEstatus;
     private String idCliente;
     private String idTarjeta;
     private String fecha;
@@ -22,11 +22,11 @@ public class Transaccion implements Serializable {
         this.idTransaccion = idTransaccion;
     }
 
-    public int getIdEstatus() {
+    public String getIdEstatus() {
         return idEstatus;
     }
 
-    public void setIdEstatus(int idEstatus) {
+    public void setIdEstatus(String idEstatus) {
         this.idEstatus = idEstatus;
     }
 

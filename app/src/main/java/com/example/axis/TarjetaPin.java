@@ -36,7 +36,7 @@ public class TarjetaPin extends AppCompatActivity{
     Persona cliente = new Persona();
     Transaccion transaccion = new Transaccion();
     String Mensaje;
-    int estatus;
+    String estatus;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,13 +44,10 @@ public class TarjetaPin extends AppCompatActivity{
         setContentView(R.layout.activity_pin);
         setUpToolbar();
         Bundle extras = getIntent().getExtras();
-        estatus= 2;
+        estatus = "Negado";
         transaccion.setIdEstatus(estatus);
-        if (estatus == 1){
-            Mensaje = "Aprobado";
-        }else{
             Mensaje = "Negado";
-        }
+
 
         if (extras != null) {
             try {

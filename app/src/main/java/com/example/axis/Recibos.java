@@ -112,7 +112,7 @@ private void getTransacciones(){
                             });*/
                             String cedula = ds.child("idCliente").getValue().toString();
                             t.setMonto((ds.child("monto").getValue().toString()));
-                            t.setIdEstatus(Integer.parseInt(ds.child("idEstatus").getValue().toString()));
+                            t.setIdEstatus((ds.child("idEstatus").getValue().toString()));
                             t.setFecha(ds.child("fecha").getValue().toString());
                             t.setIdTransaccion(ds.child("idTransaccion").getValue().toString());
                             t.setIdTarjeta(ds.child("idTarjeta").getValue().toString());
