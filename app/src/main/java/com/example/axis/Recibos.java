@@ -24,6 +24,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import org.w3c.dom.Text;
@@ -41,7 +42,9 @@ public class Recibos extends AppCompatActivity{
     private TextView textView;
     private Transaccion t= new Transaccion();
     FirebaseDatabase firebaseDatabase;
+    private String cedula1;
     DatabaseReference databaseReference;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +55,7 @@ public class Recibos extends AppCompatActivity{
         TrecyclerView.setLayoutManager(new LinearLayoutManager(this));
         textView = (TextView) findViewById(R.id.tituloActivityTransacciones);
         TDatabase = FirebaseDatabase.getInstance().getReference();
+        TDatabase2 = FirebaseDatabase.getInstance().getReference();
         getTransacciones();
 
     }
@@ -87,13 +91,32 @@ private void getTransacciones(){
                         for (DataSnapshot ds: dataSnapshot.getChildren()
                         ) {
                             Transaccion t = new Transaccion();
+                            /*Query query = TDatabase2.child("Cliente").orderByChild("idPersona").equalTo(bcedula);
+                            query.addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                    try {
+                                            for (DataSnapshot ds1 : dataSnapshot.getChildren()){
+                                                ds1.child("personaCedula").getValue().toString()
+                                                cedula1 = ds1.child("personaCedula").getValue().toString();
+                                            }
+
+                                    } catch (Exception e) {
+                                        Log.d("Error", e.toString() + cedula1);
+                                    }
+                                }
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            });*/
                             String cedula = ds.child("idCliente").getValue().toString();
                             t.setMonto((ds.child("monto").getValue().toString()));
                             t.setIdEstatus(Integer.parseInt(ds.child("idEstatus").getValue().toString()));
                             t.setFecha(ds.child("fecha").getValue().toString());
                             t.setIdTransaccion(ds.child("idTransaccion").getValue().toString());
                             t.setIdTarjeta(ds.child("idTarjeta").getValue().toString());
-                            t.setIdCliente(cedula);
+                            t.setIdCliente(ds.child("idCliente").getValue().toString());
                             transaccions.add(t);
                         }
                     }catch (Exception e){

@@ -107,13 +107,13 @@ public class TarjetaPin extends AppCompatActivity{
     }
     private void CrearTransaccion(){
         String id = databaseReference.push().getKey();
-        tarjeta1.setIdCliente(id);
+        tarjeta1.setIdCliente(cliente.getPersonaCedula());
         cliente.setIdPersona(id);
-        transaccion.setIdCliente(id);
+        transaccion.setIdCliente(cliente.getPersonaCedula());
         databaseReference.child("Cliente").child(id).setValue(cliente);
         id = databaseReference.push().getKey();
         tarjeta1.setIdTarjeta(id);
-        transaccion.setIdTarjeta(id);
+        transaccion.setIdTarjeta(tarjeta1.getNumerodecuenta());
         databaseReference.child("Tarjeta").child(id).setValue(tarjeta1);
         id = databaseReference.push().getKey();
         transaccion.setIdTransaccion(id);

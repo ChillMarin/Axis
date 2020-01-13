@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="combo">
+        <item>Corriente</item>
+        <item>Ahorro</item>
+    </string-array>
+    <string-array name="persona">
+        <item>Natural</item>
+        <item>Juridico</item>
+    </string-array>
+</resources>
