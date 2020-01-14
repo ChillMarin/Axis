@@ -18,6 +18,7 @@
         <activity android:name=".CopiaRecibo" />
         <activity android:name=".Reversar" />
         <activity android:name=".CierreDeLotes" />
+        <activity android:name=".DetalleLote"></activity>
         <activity android:name=".ReversoRecibos" ></activity>
         <activity android:name=".Recibos"></activity>
         <activity

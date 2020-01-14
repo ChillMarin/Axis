@@ -37,13 +37,9 @@ public class operacionesAdapter extends RecyclerView.Adapter<operacionesAdapter.
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         try {
-
-            holder.cedula.setText("Cédula: "+ transaccions.get(position).getIdCliente());
-             holder.monto.setText("Monto: "+String.valueOf(transaccions.get(position).getMonto()));
-            holder.estatus.setText("Estatus: "+transaccions.get(position).getIdEstatus());
-            holder.fecha.setText("Fecha: "+String.valueOf(transaccions.get(position).getFecha()));
-            holder.tarjeta.setText("Número de Tarjeta: "+String.valueOf(transaccions.get(position).getIdTarjeta()));
-            holder.ref.setText(String.valueOf(transaccions.get(position).getIdTransaccion()));
+            holder.loteestatus.setText("Estatus: "+String.valueOf(lotes.get(position).getLoteEstatus()));
+            holder.lotefecha.setText("Lote Fecha: " + lotes.get(position).getLote_fecha());
+            holder.idlote.setText("Referencia de lote: "+String.valueOf(lotes.get(position).getIdLote()));
 
         }catch (Exception e){
             Log.d("Error",e.toString());
@@ -68,17 +64,16 @@ public class operacionesAdapter extends RecyclerView.Adapter<operacionesAdapter.
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-            private TextView cedula,monto,estatus,fecha,ref,tarjeta,loteestatus,lotefecha;
+            private TextView ref,loteestatus,lotefecha, idlote;
             public View view;
             public ViewHolder(View view){
                 super(view);
                 this.view = view;
-                this.cedula = (TextView) view.findViewById(R.id.TextViewCedula);
-                this.monto = (TextView) view.findViewById(R.id.textViewMonto);
-                this.estatus = (TextView) view.findViewById(R.id.textViewEstatus);
-                this.fecha = (TextView) view.findViewById(R.id.textViewFecha);
-                this.ref = (TextView) view.findViewById(R.id.textViewRef);
-                this.tarjeta = (TextView) view.findViewById(R.id.textViewIdTarjeta);
+                this.ref = (TextView) view.findViewById(R.id.textViewTransacciones);
+                this.loteestatus = (TextView) view.findViewById(R.id.textViewLoteEstatus);
+                this.lotefecha = (TextView) view.findViewById(R.id.textViewLoteFecha);
+                this.idlote = (TextView) view.findViewById(R.id.textViewIdLote);
+
             }
         }
 }

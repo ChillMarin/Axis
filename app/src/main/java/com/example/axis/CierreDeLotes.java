@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -91,35 +92,45 @@ public class CierreDeLotes extends AppCompatActivity implements View.OnClickList
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
-                transaccions.clear();
-                try {
-                    for (DataSnapshot ds : dataSnapshot.getChildren()
-                    ) {
-                        Transaccion t = new Transaccion();
-                        String cedula = ds.child("idCliente").getValue().toString();
-                        t.setMonto((ds.child("monto").getValue().toString()));
-                        t.setIdEstatus((ds.child("idEstatus").getValue().toString()));
-                        t.setFecha(ds.child("fecha").getValue().toString());
-                        t.setIdTransaccion(ds.child("idTransaccion").getValue().toString());
-                        t.setIdTarjeta(ds.child("idTarjeta").getValue().toString());
-                        t.setIdCliente(ds.child("idCliente").getValue().toString());
-                        t.setProcesada("1");
-                        transaccions.add(t);
-                        TDatabase3.child("Transaccion").child(t.getIdTransaccion()).setValue(t);
+                    transaccions.clear();
+                    try {
+                        for (DataSnapshot ds : dataSnapshot.getChildren()
+                        ) {
+                            Transaccion t = new Transaccion();
+                            String cedula = ds.child("idCliente").getValue().toString();
+                            t.setMonto((ds.child("monto").getValue().toString()));
+                            t.setIdEstatus((ds.child("idEstatus").getValue().toString()));
+                            t.setFecha(ds.child("fecha").getValue().toString());
+                            t.setIdTransaccion(ds.child("idTransaccion").getValue().toString());
+                            t.setIdTarjeta(ds.child("idTarjeta").getValue().toString());
+                            t.setIdCliente(ds.child("idCliente").getValue().toString());
+                            t.setProcesada("1");
+                            transaccions.add(t);
+                            TDatabase3.child("Transaccion").child(t.getIdTransaccion()).setValue(t);
+                        }
+                    } catch (Exception e) {
+                        Log.d("Error", e.toString());
                     }
-                } catch (Exception e) {
-                    Log.d("Error", e.toString());
+                    Lote lote = new Lote();
+                    String id = TDatabase2.push().getKey();
+                    lote.setIdLote(id);
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+                    Date date = new Date();
+                    lote.setLote_fecha(dateFormat.format(date));
+                    lote.setLoteEstatus("Aprobado");
+                    lote.setTransaccions(transaccions);
+                    TDatabase2.child("Lote").child(id).setValue(lote);
+                    AlertDialog.Builder alerta = new AlertDialog.Builder(CierreDeLotes.this);
+                    alerta.setMessage("Se han procesado las transacciones correctamente").setCancelable(false).setPositiveButton("aceptar", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+                    });
+                    AlertDialog titulo = alerta.create();
+                    titulo.setTitle("Cierre de lote");
+                    titulo.show();
                 }
-                Lote lote = new Lote();
-                String id = TDatabase2.push().getKey();
-                lote.setIdLote(id);
-                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
-                Date date = new Date();
-                lote.setLote_fecha(dateFormat.format(date));
-                lote.setLoteEstatus("Aprobado");
-                lote.setTransaccions(transaccions);
-                TDatabase2.child("Lote").child(id).setValue(lote);
-            }
     }  //
 
             @Override

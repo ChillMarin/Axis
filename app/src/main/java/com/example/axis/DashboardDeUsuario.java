@@ -127,7 +127,9 @@ public class DashboardDeUsuario extends AppCompatActivity
 
 
         } else if (id == R.id.Reportes) {
-
+         onSlideClicked();
+         Intent intent = new Intent(this, DetalleLote.class);
+         startActivity(intent, ActivityOptionsCompat.makeSceneTransitionAnimation(this).toBundle());
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

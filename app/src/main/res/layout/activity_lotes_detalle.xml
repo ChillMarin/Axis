@@ -6,98 +6,71 @@
     android:layout_height="wrap_content"
     tools:context="">
 
-    <include
-        android:id="@+id/toolbarmenu"
-        layout="@layout/toolbar" />
-
     <TextView
-        android:id="@+id/textViewEstatus"
+        android:id="@+id/textViewIdLote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+        android:text="id lote"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewLoteEstatus"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewLote" />
+
+    <TextView
+        android:id="@+id/textViewLoteEstatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="Aprobado/Negado"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewFecha" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewIdLote" />
 
     <TextView
-        android:id="@+id/textViewRef"
+        android:id="@+id/textViewLoteFecha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Número de referencia"
+        android:layout_marginTop="8dp"
+        android:text="Aprobado/Negado"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/TextViewCedula"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewLoteEstatus" />
+
 
     <TextView
-        android:id="@+id/textViewFecha"
+        android:id="@+id/textViewLote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Hora del servidor"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/textViewEstatus"
-        app:layout_constraintTop_toBottomOf="@+id/textViewMonto" />
-
-    <TextView
-        android:id="@+id/TextViewCedula"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="XXXXXXXXXXXXXXXXX"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/textViewMonto"
-        app:layout_constraintTop_toBottomOf="@+id/textViewRef" />
-
-    <TextView
-        android:id="@+id/textViewMonto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Monto"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/textViewFecha"
-        app:layout_constraintTop_toBottomOf="@+id/TextViewCedula" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Numero de Referencia"
+        android:layout_marginBottom="8dp"
+        android:text="Lote:"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textViewRef"
+        app:layout_constraintBottom_toTopOf="@+id/textViewIdLote"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarmenu" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btnReversar"
+    <TextView
+        android:id="@+id/textViewTransacciones"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/buttonroundedatras"
-        android:onClick="re"
-        android:paddingLeft="10sp"
-        android:paddingRight="10sp"
-        android:text="@string/reversar_pago"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
+
+        android:layout_marginTop="8dp"
+        android:text="Transacciones"
+        android:textSize="18sp"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewEstatus" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewLoteFecha" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -23,7 +23,7 @@
          <item
              android:id="@+id/Reportes"
              android:icon="@drawable/ic_factura"
-             android:title="@string/reportes" />
+             android:title="Consulta de lotes" />
      </group>
 
 
