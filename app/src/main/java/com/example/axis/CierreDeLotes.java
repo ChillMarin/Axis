@@ -88,7 +88,7 @@ public class CierreDeLotes extends AppCompatActivity implements View.OnClickList
         }
     }
     private void enviartransacciones() {
-        TDatabase.child("Transaccion").orderByChild("procesada").equalTo("0").addValueEventListener(new ValueEventListener() {
+        TDatabase.child("Transaccion").orderByChild("procesada").equalTo("0").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
