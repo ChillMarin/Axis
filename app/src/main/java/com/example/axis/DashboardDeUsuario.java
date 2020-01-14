@@ -1,7 +1,10 @@
 package com.example.axis;
 
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -91,11 +94,17 @@ public class DashboardDeUsuario extends AppCompatActivity
 
                 break;
             case R.id.testComunicacion:
-
+                ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+                if (networkInfo != null && networkInfo.isConnected()){
+                    Toast.makeText(this,"Conectado",Toast.LENGTH_LONG).show();
+                }else {
+                    Toast.makeText(this,"Verifique su conexión a internet",Toast.LENGTH_LONG).show();
+                }
                 break;
-            case R.id.Logon:
+     /*       case R.id.Logon:
 
-                break;
+                break;*/
             case R.id.Salir:
                 Intent salir = new Intent(this, Login.class);
                 finish();
