@@ -24,6 +24,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class DetalleLote extends AppCompatActivity{
     private Toolbar toolbar;
@@ -31,6 +34,7 @@ public class DetalleLote extends AppCompatActivity{
     private operacionesAdapter Tadapter;
     private RecyclerView TrecyclerView;
     private ArrayList<Lote> transaccions = new ArrayList<>();
+    private List<Transaccion> list;
     private TextView textView;
     private Transaccion t= new Transaccion();
     FirebaseDatabase firebaseDatabase;
@@ -77,33 +81,18 @@ private void getTransacciones(){
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()){
-                    transaccions.clear();
+                   transaccions.clear();
                     try {
                         for (DataSnapshot ds: dataSnapshot.getChildren()
                         ) {
                             Lote t = new Lote();
-                            /*Query query = TDatabase2.child("Cliente").orderByChild("idPersona").equalTo(bcedula);
-                            query.addValueEventListener(new ValueEventListener() {
-                                @Override
-                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                    try {
-                                            for (DataSnapshot ds1 : dataSnapshot.getChildren()){
-                                                ds1.child("personaCedula").getValue().toString()
-                                                cedula1 = ds1.child("personaCedula").getValue().toString();
-                                            }
-
-                                    } catch (Exception e) {
-                                        Log.d("Error", e.toString() + cedula1);
-                                    }
-                                }
-                                @Override
-                                public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                                }
-                            });*/
                             t.setLote_fecha(ds.child("lote_fecha").getValue().toString());
                             t.setIdLote(ds.child("idLote").getValue().toString());
-                            t.setLoteEstatus(ds.child("lote_fecha").getValue().toString());
+                            t.setLoteEstatus(ds.child("loteEstatus").getValue().toString());
+                            //Map<Integer,Transaccion> map = new HashMap<Integer,Transaccion>();
+
+                            ArrayList<Transaccion> tr = (ArrayList<Transaccion>) ds.child("transaccions").getValue();
+                            t.setTransaccions(tr);
                             transaccions.add(t);
                         }
                     }catch (Exception e){

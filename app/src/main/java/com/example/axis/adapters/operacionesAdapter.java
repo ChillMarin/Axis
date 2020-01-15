@@ -4,6 +4,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,12 +16,17 @@ import com.example.axis.Models.Transaccion;
 import com.example.axis.R;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 public class operacionesAdapter extends RecyclerView.Adapter<operacionesAdapter.ViewHolder>  implements View.OnClickListener{
     private int resource;
     private ArrayList<Lote> lotes;
     private View.OnClickListener listener;
-    private  ArrayList<Transaccion> transaccions;
+    private ArrayList<Transaccion> transaccions = new ArrayList<>();
+    private List<Transaccion> list;
+    private  int recorre = 0;
     public operacionesAdapter(ArrayList<Lote> lotes, int resource){
         this.lotes = lotes;
         this.resource = resource;
@@ -37,6 +44,9 @@ public class operacionesAdapter extends RecyclerView.Adapter<operacionesAdapter.
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         try {
+            list = lotes.get(position).getTransaccions();
+            holder.ref.setText(list.toString());
+
             holder.loteestatus.setText("Estatus: "+String.valueOf(lotes.get(position).getLoteEstatus()));
             holder.lotefecha.setText("Lote Fecha: " + lotes.get(position).getLote_fecha());
             holder.idlote.setText("Referencia de lote: "+String.valueOf(lotes.get(position).getIdLote()));
@@ -66,9 +76,11 @@ public class operacionesAdapter extends RecyclerView.Adapter<operacionesAdapter.
     public class ViewHolder extends RecyclerView.ViewHolder{
             private TextView ref,loteestatus,lotefecha, idlote;
             public View view;
+            public ListView listView;
             public ViewHolder(View view){
                 super(view);
                 this.view = view;
+                //this.listView = (ListView) view.findViewById((R.id.ListViewTransacciones)) ;
                 this.ref = (TextView) view.findViewById(R.id.textViewTransacciones);
                 this.loteestatus = (TextView) view.findViewById(R.id.textViewLoteEstatus);
                 this.lotefecha = (TextView) view.findViewById(R.id.textViewLoteFecha);
